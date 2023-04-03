@@ -9,6 +9,8 @@ using std::string;
 /*string类的构造函数*/
 void string_init()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     //方式一
     string s1;
 
@@ -20,19 +22,27 @@ void string_init()
 
     //方式四
     string s4 = s3;
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 /*printf输出string字符串的方法*/
 void string_printf()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     string str = "123abc";
     printf("printf, str=%s\n", str.c_str());
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 /*string的大小写转换*/
 #include <algorithm>
 void string_transform()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     string str = "123Abc";
 
     /*大写转换*/
@@ -42,11 +52,15 @@ void string_transform()
     /*小写转换*/
     transform(str.begin(), str.end(), str.begin(), ::tolower);
     cout << "transform tolower, str=" << str << endl;
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 //string类的字符操作
 void string_char()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     string str = "123abc";
 
     cout << "str[3]=" << str[3] << endl;
@@ -55,11 +69,15 @@ void string_char()
     char array[10] = {0};
     str.copy(array, 3, 1);
     cout << "array=" << array << endl;
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 //string的特性描述
 void string_size()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     string str = "123abc";
 
     cout << "str.capacity()=" << str.capacity() << endl;
@@ -69,11 +87,15 @@ void string_size()
     cout << "str.empty()=" << str.empty() << endl;
     str.resize(15, 'r');
     cout << "str.resize=" << str << endl;
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 //string的赋值
 void string_assign()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     string str = "123abc";
     string str1;
 
@@ -94,11 +116,15 @@ void string_assign()
 
     str1.assign(str.begin(), str.end());
     cout << "str1=" << str1 << endl;
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 //string的连接
 void string_append()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     string str1 = "123";
     string str = "abc";
 
@@ -122,11 +148,15 @@ void string_append()
 
     str1.push_back('A');
     cout << "str1=" << str1 << endl;
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 //string的比较
 void string_compare()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     string str = "123abc";
     string str1 = "0123ABC";
 
@@ -139,6 +169,8 @@ void string_compare()
     const char *str2 = "0123ABC";
     cout << "str.compare(str2), ret=" << str.compare(str2) << endl;
     cout << "str.compare(0, 3, str2, 1, 3), ret=" << str.compare(0, 3, str2, 1, 3) << endl;
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 /**
@@ -148,26 +180,36 @@ void string_compare()
  */
 void string_substr()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     string str = "123abc";
 
     cout << "str.substr(0, string::npos), ret=" << str.substr(0, string::npos) << endl;
     cout << "string::npos=" << string::npos << endl; //string::npos=18446744073709551615
     cout << "str.substr(2, 3), ret=" << str.substr(2, 3) << endl;
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 //string的交换
 void string_swap()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     string str = "123abc";
     string str1 = "0123ABC";
 
     str.swap(str1);
     cout << "swap, str=" << str << ", str1=" << str1 << endl;
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 //string的查找函数
 void string_find()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     string str = "123abc";
     string::size_type ret;
 
@@ -202,11 +244,15 @@ void string_find()
 
     ret = str.find_last_not_of("23");
     cout << "str.find_last_not_of('23'), ret=" << ret << endl;
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 //string类的替换函数
 void string_replace()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     string str = "123abc";
 
     str.replace(1, 3, "RPLACE");
@@ -218,11 +264,15 @@ void string_replace()
 
     str.replace(1, 3, 5, 'R');
     cout << "str.replace, str=" << str << endl;
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 //string类的插入函数
 void string_insert()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     string str = "123abc";
 
     str.insert(1, "INSERT");
@@ -230,11 +280,15 @@ void string_insert()
 
     str.insert(1, 5, 'R');
     cout << "str.insert, str=" << str << endl;
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 //string类的删除函数
 void string_erase()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     string str = "123abc";
 
     str.erase(1, 2);
@@ -242,11 +296,15 @@ void string_erase()
 
     str.erase(); //empty string
     cout << "str.erase(), str=" << str << endl;
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 //string类的迭代器处理
 void string_iterator()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     string str = "123abc";
 
     auto it_b = str.begin();
@@ -277,11 +335,15 @@ void string_iterator()
     {
         cout << "*it=" << *it << endl;
     }
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 //string的int与string相互转换函数
 void string_to_string()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     int i = 1;
     long l = 20;
     float f = 3.14;
@@ -296,6 +358,8 @@ void string_to_string()
     //把string类型转成整型
     string str = "123abc";
     cout << atoi(str.c_str()) << endl;
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 //字符串流处理
@@ -304,6 +368,8 @@ using std::istringstream;
 using std::ostringstream;
 void string_sstream()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     string input("hello,this is a test");
     istringstream is(input);
     string s1,s2,s3,s4;
@@ -316,6 +382,8 @@ void string_sstream()
     ostringstream os;
     os<<s1<<s2<<s3<<s4;
     cout <<os.str() << endl;
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 int main(void)

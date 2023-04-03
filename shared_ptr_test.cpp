@@ -35,6 +35,8 @@ private:
 /*shared_ptr类的构造函数*/
 void shared_ptr_init()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     //方式一
     shared_ptr<DelTest> pTom1;
     pTom1.reset(new DelTest("tom_reset"));
@@ -44,12 +46,16 @@ void shared_ptr_init()
 
     //方式三，推荐，更快（一次复制），更安全
     shared_ptr<DelTest> pTom3 = make_shared<DelTest>("tom_make_shared");
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 /*shared_ptr类的use_count函数，查看一个对象的引用计数*/
 /*shared_ptr类的reset函数，减少对象的一个引用计数*/
 void shared_ptr_use_count()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     //default use_count=0
     shared_ptr<DelTest> pTom;
     cout << "pTom " << (pTom ? "not" : "is") << " nullptr" << endl;
@@ -77,11 +83,15 @@ void shared_ptr_use_count()
     pTom.reset();
     cout << "pTom " << (pTom ? "not" : "is") << " nullptr" << endl;
     cout << "pTom1 and pTom reset, pTom.use_count()=" << pTom.use_count() << endl;
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 /*shared_ptr类的get函数，获取原始指针*/
 void shared_ptr_get()
 {
+    cout << __FUNCTION__ << " start" << endl;
+
     shared_ptr<DelTest> pTom = make_shared<DelTest>("tom_get");
 
     //直接使用shared_ptr操作对象
@@ -90,6 +100,8 @@ void shared_ptr_get()
     /*用原始指针来操作对象*/
     DelTest *p = pTom.get();
     p->printName();
+
+    cout << __FUNCTION__ << " end" << endl;
 }
 
 /**
